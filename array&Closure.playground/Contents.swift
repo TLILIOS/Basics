@@ -84,7 +84,18 @@ square(closure: {$0 / ($0 + 1)}, arrayNumbers: [2, 3, 5])
 
 var arrNames = ["Adam", "Alex", "Charlotte", "claire"]
 var arrFiltered = arrNames
-arrFiltered = arrFiltered.filter({ num in
-    num.hasPrefix("c")
-})
-print(arrFiltered)
+arrFiltered = arrFiltered.filter({ $0.hasPrefix("A")})
+//print(arrFiltered)
+// with --------------------------⤼ @autoclosure
+func printMsg(msg: String, closure: () -> Bool) {
+    if closure() {
+        print(msg)
+    } else {
+        print("Error!!!")
+    }
+}
+printMsg(msg: "Hello What's Up") {
+    false
+}
+
+//printMsg(msg: "Hello, with @autoclosure", closure: true)
