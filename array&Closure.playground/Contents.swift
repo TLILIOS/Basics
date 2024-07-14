@@ -62,15 +62,29 @@ func getNumbers(closure: (Int) -> Bool, arrNumbers: [Int]) -> [Int] {
     }
     return arrFiltredNumbers
 }
-func evenNumber(_ num: Int) -> Bool {
+func evenNumber(num: Int) -> Bool {
     num % 2 == 0
 }
-func oddNumber(_ num: Int) -> Bool {
+func oddNumber(num: Int) -> Bool {
     num % 2 != 0
 }
 let arrNumbers = [2, 5, 6, 77, 100, 39, 22]
-let arrOddNumbers = getNumbers(closure: oddNumber(_:), arrNumbers: arrNumbers )
-print("Here the array of Odd Numbers: \(arrOddNumbers)")
+let arrOddNumbers = getNumbers(closure: oddNumber(num:), arrNumbers: arrNumbers )
+//print("Here the array of Odd Numbers: \(arrOddNumbers)")
 
-let arrEvenNumbers = getNumbers(closure: evenNumber(_:), arrNumbers: arrNumbers)
-print("Here the array of Even Numbers: \(arrEvenNumbers)")
+let arrEvenNumbers = getNumbers(closure: evenNumber(num:), arrNumbers: arrNumbers)
+//print("Here the array of Even Numbers: \(arrEvenNumbers)")
+
+func square(closure: (Double) -> Double, arrayNumbers: [Double]) {
+    for number in arrayNumbers {
+//        print(closure(number))
+    }
+}
+square(closure: {$0 / ($0 + 1)}, arrayNumbers: [2, 3, 5])
+
+var arrNames = ["Adam", "Alex", "Charlotte", "claire"]
+var arrFiltered = arrNames
+arrFiltered = arrFiltered.filter({ num in
+    num.hasPrefix("c")
+})
+print(arrFiltered)
